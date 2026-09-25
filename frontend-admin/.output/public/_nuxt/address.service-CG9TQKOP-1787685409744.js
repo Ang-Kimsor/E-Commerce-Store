@@ -1,0 +1,1 @@
+import{t as e}from"./useApiFetch-ChhWbm-s-1787685409744.js";var t={async getById(t){return await e(`/admin/addresses/${t}`)},async create(t){return await e(`/admin/addresses`,{method:`POST`,body:t})},async update(t,n){return await e(`/admin/addresses/${t}`,{method:`PUT`,body:n})},async delete(t){return await e(`/admin/addresses/${t}`,{method:`DELETE`})}};export{t};

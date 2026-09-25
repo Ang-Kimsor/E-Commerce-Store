@@ -1,0 +1,1 @@
+import{t as e}from"./useApiFetch-KLbydf9x-1787584952808.js";var t={async getAll(t){let n=t?`?`+new URLSearchParams(Object.fromEntries(Object.entries(t).map(([e,t])=>[e,String(t)]))).toString():``;return await e(`/customer/orders${n}`)},async getById(t){return await e(`/customer/orders/${t}`)},async create(t){return await e(`/customer/orders`,{method:`POST`,body:t})}};export{t};

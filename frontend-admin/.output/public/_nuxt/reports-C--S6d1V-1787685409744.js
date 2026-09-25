@@ -1,0 +1,1 @@
+import{I as e,b as t,p as n}from"./runtime-core.esm-bundler-CgwbgLA_-1787685409744.js";import{u as r}from"./error-DbgL6JuZ-1787685409744.js";import{t as i}from"./composables-CNs_Ozdc-1787685409744.js";var a=t({__name:`index`,setup(t){return i({middleware:[`admin`,function(){return r(`/reports/sales`)}]}),(t,r)=>(e(),n(`div`))}});export{a as default};

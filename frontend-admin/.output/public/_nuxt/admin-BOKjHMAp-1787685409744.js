@@ -1,0 +1,1 @@
+import{c as e,u as t}from"./error-DbgL6JuZ-1787685409744.js";import{n}from"./app-CH5U4nTe-1787685409744.js";function r(){return n(`admin_auth_token`).value||null}var i=e(e=>{if(!r())return t(`/login`)});export{i as default};

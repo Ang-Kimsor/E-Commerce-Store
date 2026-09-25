@@ -1,0 +1,1 @@
+import"./nuxt-link-Dddw3jpO-1787584952808.js";var e=globalThis.setInterval;export{e as t};
