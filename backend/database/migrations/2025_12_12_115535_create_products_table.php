@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedInteger('stock')->default(0);
             $table->text('image')->nullable();
             $table->unsignedSmallInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories')->cascadeOnUpdate()->nullOnDelete();
+            $table->foreign('category_id')->references('id')->on('categories')->cascadeOnUpdate()->restrictOnDelete();
             $table->timestamps();
             $table->softDeletes();
 
