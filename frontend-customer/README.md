@@ -9,7 +9,6 @@
 
 - [Overview 📖](#overview-)
 - [Key Features ✨](#key-features-)
-- [Telegram WebApp & Mini App Ready 📱](#telegram-webapp--mini-app-ready-)
 - [Tech Stack & Architecture 🛠️](#tech-stack--architecture-️)
 - [Prerequisites ✅](#prerequisites-)
 - [Installation & Setup 💾](#installation--setup-)
@@ -49,26 +48,17 @@ Designed from the ground up to support both standalone web browsers and embedded
 
 ---
 
-## Telegram WebApp & Mini App Ready 📱
-
-The storefront is fully configured to operate as a **Telegram Mini App (TMA)**:
-- **Frame-Ancestors Security Policy:** `nuxt.config.ts` includes `frame-ancestors 'self' https://web.telegram.org https://telegram.org` allowing safe iframe embedding within Telegram clients.
-- **Mobile Viewport Optimization:** Pre-configured `viewport` settings prevent unwanted mobile zooming and provide a native application feel.
-- **Bot Integration:** Configured with `NUXT_PUBLIC_TELEGRAM_BOT` to connect store actions with Telegram bot notifications.
-
----
-
 ## Tech Stack & Architecture 🛠️
 
-| Technology | Purpose |
-| :--- | :--- |
-| **Nuxt.js 4.5+** | Progressive Vue framework configured for client-side SPA rendering |
-| **Vue 3.5+** | Frontend UI framework utilizing Composition API (`<script setup>`) |
-| **Pinia 4.x** | Centralized reactive state management |
-| **pinia-plugin-persistedstate** | Automatic persistent caching for cart, user auth, and settings |
-| **TailwindCSS 3.x** | Utility-first responsive CSS styling |
-| **Lucide Vue** | Clean modern icons for shopping carts, user profiles, and badges |
-| **Vite & Nitro** | Next-generation build tooling and static compilation engine |
+| Technology                      | Purpose                                                            |
+| :------------------------------ | :----------------------------------------------------------------- |
+| **Nuxt.js 4.5+**                | Progressive Vue framework configured for client-side SPA rendering |
+| **Vue 3.5+**                    | Frontend UI framework utilizing Composition API (`<script setup>`) |
+| **Pinia 4.x**                   | Centralized reactive state management                              |
+| **pinia-plugin-persistedstate** | Automatic persistent caching for cart, user auth, and settings     |
+| **TailwindCSS 3.x**             | Utility-first responsive CSS styling                               |
+| **Lucide Vue**                  | Clean modern icons for shopping carts, user profiles, and badges   |
+| **Vite & Nitro**                | Next-generation build tooling and static compilation engine        |
 
 ---
 
@@ -118,23 +108,23 @@ The customer storefront will run on: **`http://localhost:3001`**
 
 ## Environment Variables (.env) ⚙️
 
-| Variable | Description | Default / Example |
-| :--- | :--- | :--- |
-| `NUXT_PUBLIC_API_BASE` | URL of the backend REST API endpoint | `http://localhost:8000/api` |
-| `NUXT_PUBLIC_TELEGRAM_BOT` | Telegram bot username (without `@`) | `MyStoreBot` |
-| `NUXT_PUBLIC_SITE_NAME` | Storefront title displayed across page headers | `"My Store"` |
+| Variable                   | Description                                    | Default / Example           |
+| :------------------------- | :--------------------------------------------- | :-------------------------- |
+| `NUXT_PUBLIC_API_BASE`     | URL of the backend REST API endpoint           | `http://localhost:8000/api` |
+| `NUXT_PUBLIC_TELEGRAM_BOT` | Telegram bot username (without `@`)            | `MyStoreBot`                |
+| `NUXT_PUBLIC_SITE_NAME`    | Storefront title displayed across page headers | `"My Store"`                |
 
 ---
 
 ## Available NPM Scripts 📜
 
-| Command | Action |
-| :--- | :--- |
-| `npm run dev` | Runs the development server on port 3001 |
-| `npm run build` | Builds the production bundle |
-| `npm run generate` | Pre-renders static files into `.output/public` for cPanel / static hosting |
-| `npm run preview` | Previews the generated production build locally |
-| `npm run postinstall`| Generates Nuxt auto-imports and type definitions (`nuxt prepare`) |
+| Command               | Action                                                                     |
+| :-------------------- | :------------------------------------------------------------------------- |
+| `npm run dev`         | Runs the development server on port 3001                                   |
+| `npm run build`       | Builds the production bundle                                               |
+| `npm run generate`    | Pre-renders static files into `.output/public` for cPanel / static hosting |
+| `npm run preview`     | Previews the generated production build locally                            |
+| `npm run postinstall` | Generates Nuxt auto-imports and type definitions (`nuxt prepare`)          |
 
 ---
 
@@ -142,31 +132,33 @@ The customer storefront will run on: **`http://localhost:3001`**
 
 All storefront routes are organized under `app/pages/`:
 
-| Route | Component | Description |
-| :--- | :--- | :--- |
-| `/` | `index.vue` | Main storefront home: banner, categories, product catalog |
-| `/products/[id]` | `products/[id].vue` | Product detailed view: image gallery, price, add to cart |
-| `/cart` | `cart.vue` | Shopping cart drawer, items review, checkout dialog |
-| `/orders` | `orders.vue` | Order history list, status badges, PDF invoice links |
-| `/addresses` | `addresses.vue` | Delivery address management (add, edit, set default) |
-| `/profile` | `profile/index.vue` | User details, avatar upload, password & email update |
-| `/login` | `login.vue` | Customer login with email OTP code |
-| `/register` | `register.vue` | New customer account creation with OTP verification |
-| `/verify-otp` | `verify-otp.vue` | Reusable 6-digit OTP verification screen |
-| `/forgot-password` | `forgot-password.vue`| Request password reset code via email |
-| `/reset-password` | `reset-password.vue` | Submit new password after OTP verification |
-| `/maintenance` | `maintenance.vue` | Maintenance mode broadcast display |
+| Route              | Component             | Description                                               |
+| :----------------- | :-------------------- | :-------------------------------------------------------- |
+| `/`                | `index.vue`           | Main storefront home: banner, categories, product catalog |
+| `/products/[id]`   | `products/[id].vue`   | Product detailed view: image gallery, price, add to cart  |
+| `/cart`            | `cart.vue`            | Shopping cart drawer, items review, checkout dialog       |
+| `/orders`          | `orders.vue`          | Order history list, status badges, PDF invoice links      |
+| `/addresses`       | `addresses.vue`       | Delivery address management (add, edit, set default)      |
+| `/profile`         | `profile/index.vue`   | User details, avatar upload, password & email update      |
+| `/login`           | `login.vue`           | Customer login with email OTP code                        |
+| `/register`        | `register.vue`        | New customer account creation with OTP verification       |
+| `/verify-otp`      | `verify-otp.vue`      | Reusable 6-digit OTP verification screen                  |
+| `/forgot-password` | `forgot-password.vue` | Request password reset code via email                     |
+| `/reset-password`  | `reset-password.vue`  | Submit new password after OTP verification                |
+| `/maintenance`     | `maintenance.vue`     | Maintenance mode broadcast display                        |
 
 ---
 
 ## Customer Workflows 🛒
 
 ### 1. Authentication & OTP Verification
+
 - Customers enter their email to request a 6-digit OTP.
 - The backend sends the verification code with a cooldown timer.
 - On successful validation, a Sanctum token is returned and securely stored in Pinia.
 
 ### 2. Cart & Checkout Process
+
 - Customers add products to the cart; state is preserved even if the page refreshes.
 - During checkout, the customer selects or adds a delivery address.
 - Customers choose either **Cash on Delivery** or **Bank Transfer**.
@@ -174,6 +166,7 @@ All storefront routes are organized under `app/pages/`:
 - Upon placement, an automated Telegram notification with receipt and invoice is dispatched.
 
 ### 3. Order Tracking & Invoicing
+
 - Customers visit `/orders` to view real-time fulfillment updates.
 - A **Download Invoice** button triggers the backend DomPDF generator to fetch an official A4 tax invoice.
 
