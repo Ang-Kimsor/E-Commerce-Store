@@ -15,6 +15,10 @@
 - [Installation & Setup 💾](#installation--setup-)
 - [Environment Variables (.env) ⚙️](#environment-variables-env-️)
 - [Available NPM Scripts 📜](#available-npm-scripts-)
+- [Application Pages & Modules 🖥️](#application-pages--modules-️)
+  - [1. General & Authentication Pages](#1-general--authentication-pages)
+  - [2. Admin Management Modules](#2-admin-management-modules)
+  - [3. Superadmin-Exclusive Modules](#3-superadmin-exclusive-modules)
 - [Folder Structure 📂](#folder-structure-)
 - [License 📄](#license-)
 
@@ -137,6 +141,46 @@ The administration portal will be available at: **`http://localhost:3000`**
 | `npm run generate` | Pre-renders static files into `.output/public` for cPanel / static hosting |
 | `npm run preview` | Locally preview the production build output |
 | `npm run postinstall`| Prepares Nuxt types and auto-imports (`nuxt prepare`) |
+
+---
+
+## Application Pages & Modules 🖥️
+
+All admin portal routes are organized under `app/pages/`:
+
+### 1. General & Authentication Pages
+
+| Route | Component | Access Role | Description |
+| :--- | :--- | :--- | :--- |
+| `/login` | `login.vue` | Public | Administrator login with email & password |
+| `/` | `index.vue` | Admin / Superadmin | Operations dashboard with real-time sales metrics, revenue, and charts |
+| `/profile` | `profile/index.vue` | Admin / Superadmin | Operator personal profile, credentials, and avatar management |
+
+### 2. Admin Management Modules
+
+| Route | Component | Access Role | Description |
+| :--- | :--- | :--- | :--- |
+| `/products` | `products/index.vue` | Admin / Superadmin | Catalog products listing, search, category filter, and stock levels |
+| `/products/[id]` | `products/[id]/index.vue` | Admin / Superadmin | Product detail view, edit info, images, and stock movements |
+| `/categories` | `categories/index.vue` | Admin / Superadmin | Product category hierarchy, create/edit categories, and Excel export |
+| `/orders` | `orders/index.vue` | Admin / Superadmin | Incoming customer orders, status filtering, and fulfillment processing |
+| `/orders/[id]` | `orders/[id]/index.vue` | Admin / Superadmin | Order detail view, bank payment slip verification, and invoice PDF |
+| `/orders/create` | `orders/create.vue` | Admin / Superadmin | Manual order creation for walk-in or offline sales |
+| `/customers` | `customers/index.vue` | Admin / Superadmin | Customer directory, order counts, account blocking/unblocking |
+| `/customers/create` | `customers/create.vue` | Admin / Superadmin | Manual customer account registration with delivery addresses |
+| `/customers/[id]` | `customers/[id]/index.vue` | Admin / Superadmin | Customer details, address book inspection, and order histories |
+| `/reports` | `reports/index.vue` | Admin / Superadmin | Reporting hub redirecting to dedicated analytics modules |
+| `/reports/sales` | `reports/sales.vue` | Admin / Superadmin | Sales analytics, revenue breakdown, and Excel exports |
+| `/reports/products` | `reports/products.vue` | Admin / Superadmin | Top-performing products, low stock alerts, and catalog reports |
+| `/reports/customers` | `reports/customers.vue` | Admin / Superadmin | Customer growth, order frequencies, and spending metrics |
+| `/reports/inventory` | `reports/inventory.vue` | Admin / Superadmin | Inventory movement logs, replenishment audit, and adjustments |
+
+### 3. Superadmin-Exclusive Modules
+
+| Route | Component | Access Role | Description |
+| :--- | :--- | :--- | :--- |
+| `/admins` | `admins/index.vue` | Superadmin Only | Manage administrator accounts: create admins, change roles, block/unblock, and restore soft-deleted staff |
+| `/settings` | `settings/index.vue` | Superadmin Only | Global platform configuration: store branding, logo, favicon, SEO tags, contact details, and maintenance mode toggle |
 
 ---
 
