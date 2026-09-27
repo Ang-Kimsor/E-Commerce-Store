@@ -21,7 +21,6 @@
   - [2. Cart & Checkout Process](#2-cart--checkout-process)
   - [3. Order Tracking & Invoicing](#3-order-tracking--invoicing)
 - [Folder Structure 📂](#folder-structure-)
-- [Build & Deployment 🚀](#build--deployment-)
 - [License 📄](#license-)
 
 ---
@@ -200,33 +199,6 @@ frontend-customer/
 ├── package.json                   # Dependencies and scripts
 ├── tailwind.config.js             # Styling configuration & color palettes
 └── tsconfig.json                  # TypeScript compiler settings
-```
-
----
-
-## Build & Deployment 🚀
-
-The customer storefront is configured for **Static SPA hosting** via Nitro (`preset: 'static'`):
-
-```bash
-npm run generate
-```
-
-This creates a self-contained static site inside `.output/public`.
-
-### Deploying to cPanel / Apache
-
-Upload the contents of `.output/public` to your root public directory (e.g. `public_html`). Ensure you have an `.htaccess` file configured for SPA routing:
-
-```apache
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
-</IfModule>
 ```
 
 ---

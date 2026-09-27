@@ -185,7 +185,7 @@ cd E-Commerce-Store
    ```
    The API will be accessible at: `http://localhost:8000`
 
-> 📖 **Detailed Documentation:** For complete API endpoints, architecture, and Artisan commands, see [backend/Readme.md](backend/Readme.md).
+> 📖 **Detailed Documentation:** For complete API endpoints reference, architecture, and Artisan commands, see [backend/Readme.md](backend/Readme.md).
 
 ---
 

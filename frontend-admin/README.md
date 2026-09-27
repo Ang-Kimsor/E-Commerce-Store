@@ -15,9 +15,7 @@
 - [Installation & Setup 💾](#installation--setup-)
 - [Environment Variables (.env) ⚙️](#environment-variables-env-️)
 - [Available NPM Scripts 📜](#available-npm-scripts-)
-- [Application Pages & Modules 🖥️](#application-pages--modules-️)
 - [Folder Structure 📂](#folder-structure-)
-- [Build & Deployment 🚀](#build--deployment-)
 - [License 📄](#license-)
 
 ---
@@ -124,7 +122,7 @@ The administration portal will be available at: **`http://localhost:3000`**
 
 | Variable | Description | Default / Example |
 | :--- | :--- | :--- |
-| `NUXT_PUBLIC_API_BASE` | URL of the backend REST API endpoint | `http://localhost:8000/api` |
+| `NUXT_PUBLIC_API_BASE` | URL of the backend REST API | `http://localhost:8000/api` |
 | `NUXT_PUBLIC_TELEGRAM_BOT` | Telegram bot username (without `@`) | `MyStoreBot` |
 | `NUXT_PUBLIC_SITE_NAME` | Portal title shown in browser tab and navbar | `"Store Admin"` |
 
@@ -139,26 +137,6 @@ The administration portal will be available at: **`http://localhost:3000`**
 | `npm run generate` | Pre-renders static files into `.output/public` for cPanel / static hosting |
 | `npm run preview` | Locally preview the production build output |
 | `npm run postinstall`| Prepares Nuxt types and auto-imports (`nuxt prepare`) |
-
----
-
-## Application Pages & Modules 🖥️
-
-All application routes are located under `app/pages/`:
-
-| Route / Directory | Component / Page | Access Role | Description |
-| :--- | :--- | :--- | :--- |
-| `/login` | `login.vue` | Public | Administrator login with email & password |
-| `/` | `index.vue` | Admin+ | Operations dashboard, sales metrics, and charts |
-| `/products` | `products/index.vue` | Admin+ | Catalog items listing, search, filter, stock levels |
-| `/products/create` | `products/create.vue` | Admin+ | Product creation with multi-image upload |
-| `/categories` | `categories/index.vue`| Admin+ | Category management & parent-child hierarchies |
-| `/orders` | `orders/index.vue` | Admin+ | Order management, payment slip checks, status updates |
-| `/customers` | `customers/index.vue` | Admin+ | Customer directory, order histories, account blocking |
-| `/reports` | `reports/index.vue` | Admin+ | Analytical reporting (Sales, Inventory, Customers) |
-| `/profile` | `profile/index.vue` | Admin+ | Operator profile info and avatar management |
-| `/admins` | `admins/index.vue` | Superadmin | Management of administrator accounts and privileges |
-| `/settings` | `settings/index.vue` | Superadmin | System-wide settings (branding, logo, maintenance) |
 
 ---
 
@@ -182,33 +160,6 @@ frontend-admin/
 ├── package.json                   # Dependencies and scripts
 ├── tailwind.config.js             # Tailwind design tokens and theme extensions
 └── tsconfig.json                  # TypeScript compiler settings
-```
-
----
-
-## Build & Deployment 🚀
-
-The admin portal is configured for **Static SPA hosting** via Nitro (`preset: 'static'`), making it lightweight and compatible with any static hosting service or traditional cPanel Apache/Nginx web server:
-
-```bash
-npm run generate
-```
-
-This compiles optimized HTML, JavaScript, and CSS into the `.output/public` directory.
-
-### Deploying to cPanel / Apache
-
-Upload the contents of `.output/public` to your web directory (`public_html` or subdomain folder). Add an `.htaccess` file to route client-side URLs to `index.html`:
-
-```apache
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
-</IfModule>
 ```
 
 ---
