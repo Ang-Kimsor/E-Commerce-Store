@@ -185,6 +185,8 @@ cd E-Commerce-Store
    ```
    The API will be accessible at: `http://localhost:8000`
 
+> 📖 **Detailed Documentation:** For complete API endpoints, architecture, and Artisan commands, see [backend/Readme.md](backend/Readme.md).
+
 ---
 
 #### 3. Frontend Admin Setup (Management Portal)
@@ -217,6 +219,8 @@ cd E-Commerce-Store
 
    The admin portal will run on: `http://localhost:3000`
 
+> 📖 **Detailed Documentation:** For UI components, admin workflows, and deployment guides, see [frontend-admin/README.md](frontend-admin/README.md).
+
 ---
 
 #### 4. Frontend Customer Setup (Storefront)
@@ -248,6 +252,8 @@ cd E-Commerce-Store
    ```
 
    The customer storefront will run on: `http://localhost:3001` (or the port specified by Nuxt).
+
+> 📖 **Detailed Documentation:** For storefront features, checkout flows, and Telegram Mini App integration, see [frontend-customer/README.md](frontend-customer/README.md).
 
 ---
 
@@ -283,7 +289,8 @@ Here is the high-level project directory structure:
 │   ├── /routes                   # API routes (api.php) and web routes
 │   ├── /storage                  # Uploaded payment slips, product images, and logs
 │   ├── artisan                   # Artisan CLI executable
-│   └── composer.json             # PHP backend dependencies
+│   ├── composer.json             # PHP backend dependencies
+│   └── Readme.md                 # Dedicated Backend REST API documentation
 │
 ├── /frontend-admin               # Nuxt.js 4 Admin & SuperAdmin Portal
 │   ├── /app
@@ -293,7 +300,8 @@ Here is the high-level project directory structure:
 │   │   └── /assets/css           # Admin TailwindCSS stylesheets
 │   ├── nuxt.config.ts            # Admin Nuxt configuration
 │   ├── package.json              # Admin frontend dependencies
-│   └── tailwind.config.js        # Admin styling configuration
+│   ├── tailwind.config.js        # Admin styling configuration
+│   └── README.md                 # Dedicated Admin Portal documentation
 │
 ├── /frontend-customer            # Nuxt.js 4 Customer Storefront
 │   ├── /app
@@ -303,9 +311,10 @@ Here is the high-level project directory structure:
 │   │   └── /assets/css           # TailwindCSS stylesheets
 │   ├── nuxt.config.ts            # Nuxt configuration & Telegram WebApp headers
 │   ├── package.json              # Customer frontend dependencies
-│   └── tailwind.config.js        # Tailwind styling configuration
+│   ├── tailwind.config.js        # Tailwind styling configuration
+│   └── README.md                 # Dedicated Customer Storefront documentation
 │
-└── README.md                     # Project documentation
+└── README.md                     # Root project documentation
 ```
 
 ---
@@ -314,14 +323,14 @@ Here is the high-level project directory structure:
 
 The backend includes purpose-built CLI commands for managing administrative users and routine data cleanup:
 
-| Command                               | Description                                                    |
-| :------------------------------------ | :------------------------------------------------------------- |
-| `php artisan superadmin:create`       | Interactively provision a new superadministrator account.      |
-| `php artisan superadmin:activate`     | Activate a deactivated superadmin account.                     |
-| `php artisan superadmin:deactivate`   | Deactivate an active superadmin account.                       |
-| `php artisan otps:clean`              | Clean up expired OTP verification records from the database.   |
-| `php artisan notifications:clean`     | Purge old read notifications to optimize database performance. |
-| `php artisan customers:clean-deleted` | Permanently clean customer accounts that requested deletion.   |
+| Command | Description |
+| :--- | :--- |
+| `php artisan superadmin:create` | Interactively provision a new superadministrator account. |
+| `php artisan superadmin:active {email?}` | Activate a deactivated superadmin account. |
+| `php artisan superadmin:inactive {email?}` | Deactivate an active superadmin account. |
+| `php artisan customer:clean-otp` | Hard delete old customer OTP verifications to free up DB space. |
+| `php artisan notifications:clean` | Purge old read notifications to optimize database performance. |
+| `php artisan customer:clean-account` | Process account deletions that have passed the 90-day grace period. |
 
 ---
 
